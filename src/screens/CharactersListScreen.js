@@ -31,6 +31,11 @@ export default function CharactersListScreen({ navigation }) {
     loadCharacters(search);
   }
 
+  function handleClearButton() {
+    setSearch("");
+    loadCharacters("");
+  }
+
   if (loading) return <ActivityIndicator size="large" style={{ marginTop: 40 }} />;
 
   return (
@@ -39,6 +44,7 @@ export default function CharactersListScreen({ navigation }) {
         value={search}
         onChangeText={(text) => setSearch(text)}
         onSearch={handleSearchButton}
+        onClear={handleClearButton}
       />
 
       <FlatList
